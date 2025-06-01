@@ -1,0 +1,16 @@
+<template>
+    <lightning-card variant="Narrow" title="SLA Deadline" icon-name="utility:clock">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; padding-left: 1rem;">
+
+            <lightning-badge label={timer} class="timer" style="height: 25px; line-height: 25px; font-size: 1.2rem;">
+            </lightning-badge>
+
+            <template if:true={statusCheck}>
+                <lightning-button variant="brand" label="Reopen Case" onclick={handleReopenCase}
+                    class="slds-m-top_small" style="height: 30px; line-height: 30px; font-size: 1.3rem;">
+                </lightning-button>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Case History Details">
+        <div class="slds-p-around_medium">
+            <template if:true={error}>
+                <p class="slds-text-color_error">Erro: {error}</p>
+            </template>
+
+            <template if:true={data}>
+                <p><strong>Id:</strong> {data.Id}</p>
+                <p><strong>Status:</strong> {data.Status}</p>
+                <p><strong>SLA Met:</strong> {data.SLA_Met__c}</p>
+            </template>
+
+            <template if:true={isLoading}>
+                <p>Carregando dados...</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

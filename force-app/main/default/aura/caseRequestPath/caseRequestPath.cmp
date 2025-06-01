@@ -1,0 +1,29 @@
+<aura:component 
+    controller="CaseRequestController"
+    implements="flexipage:availableForAllPageTypes, 
+                flexipage:availableForRecordHome, 
+                force:hasRecordId" 
+    access="global">
+
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="selectedStage" type="String" />
+
+    <lightning:layout verticalAlign="center" horizontalAlign="space-between">
+        <lightning:layoutItem flexibility="auto" size="auto">
+            <lightning:picklistPath aura:id="picklistPath"
+                recordId="{!v.recordId}"
+                variant="non-linear"
+                picklistFieldApiName="Status__c"
+                onselect="{!c.handleSelect}">
+            </lightning:picklistPath>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem padding="around-small" size="auto">
+            <lightning:button 
+                label="Save Stage" 
+                onclick="{!c.handleSave}" 
+                disabled="{!empty(v.selectedStage)}" 
+                variant="brand" />
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
